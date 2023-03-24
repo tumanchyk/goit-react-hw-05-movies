@@ -2,9 +2,8 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  /* font-family: Georgia, 'Times New Roman', Times, serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #232227;
@@ -21,4 +20,7 @@ h3,
 h4,
 a {
   color: #fff;
+  margin: 0;
+  padding: 0;
+  /* color: #e4e4e5; */
 }

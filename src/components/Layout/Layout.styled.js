@@ -3,24 +3,28 @@ import { NavLink} from 'react-router-dom';
 
 
 const Header = styled.header`
-padding: 20px 100px;
-background-color: #27C498;
+padding: 20px 150px;
+background-color: #03dac6;
 
 `
 const Container = styled.main`
-padding: 0 100px;
+width: 1260px;
+padding: 30px 150px;
 margin: 0 auto;`
 
 const StyledLink = styled(NavLink)`
-  color: #fff;
+  color: #e4e4e5;
+
   text-decoration: none;
   font-weight: 600;
+  font-size: 20px;
+
   &:not(:last-child){
  margin-right: 20px;
 }
   &.active {
-    color: orange;
-  }
+    color: #fff;
+    }
 `;
 
 export {StyledLink, Container, Header}
