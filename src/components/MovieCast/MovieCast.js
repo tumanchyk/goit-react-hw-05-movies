@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieCast } from "API";
-import { CastList, CastCard, Image, ImgContainer, Name, Character } from "components/Cast/Cast.styled";
+import { CastList, CastCard, Image, ImgContainer, Name, Character } from "components/MovieCast/Cast.styled";
 import photo from 'not-found-image.jpg';
 
 const EP_IMG= 'https://image.tmdb.org/t/p/w500';

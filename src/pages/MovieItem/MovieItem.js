@@ -15,7 +15,7 @@ useEffect(()=> {
 getMovieInfo(id).then(setMovie)
 }, [id])
 
-const {title, backdrop_path , genres, overview, vote_average, production_countries} = movie;
+const {title, backdrop_path , overview, vote_average} = movie;
 
 // const country =(production_countries[0].name)
 const country = 'uk'
