@@ -5,11 +5,14 @@ import { NavLink} from 'react-router-dom';
 const Header = styled.header`
 padding: 20px 150px;
 background-color: #03dac6;
-
+`
+const Nav = styled.nav`
+width: 1260px;
+margin: 0 auto;
 `
 const Container = styled.main`
 width: 1260px;
-padding: 30px 150px;
+padding: 40px 0;
 margin: 0 auto;`
 
 const StyledLink = styled(NavLink)`
@@ -27,4 +30,4 @@ const StyledLink = styled(NavLink)`
     }
 `;
 
-export {StyledLink, Container, Header}
+export {StyledLink, Container, Header, Nav}

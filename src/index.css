@@ -3,7 +3,6 @@
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  /* font-family: Georgia, 'Times New Roman', Times, serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #232227;
@@ -18,9 +17,12 @@ h1,
 h2,
 h3,
 h4,
-a {
+a,
+ul {
   color: #fff;
   margin: 0;
   padding: 0;
-  /* color: #e4e4e5; */
+}
+ul {
+  list-style: none;
 }

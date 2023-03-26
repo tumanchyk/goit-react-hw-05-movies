@@ -1,20 +1,24 @@
-import MovieItem from "pages/MoviesItem";
-import { Link } from "react-router-dom";
-import { CardTitle, MovieCard, Image, Raiting, ImgContainer, MovieSet } from "./MovieList.styled";
-
+import { CardTitle, MovieCard, Image, Rating, ImgContainer, MovieSet, MovieLink, Star } from "./MovieList.styled";
+import photo from 'not-found-image.jpg'
 const EP_IMG= 'https://image.tmdb.org/t/p/w500'
-const exmp ='/kqjL17yufvn9OVLyXYpvtyrFfak.jpg'
 
-const MovieList = ({set, way}) =>{
+const MovieList = ({set, way, state}) =>{
    return <MovieSet>
-    {set.map(item => <MovieCard key={item.id}>
-      <Link to = {way ? `${way}/${item.id}` : `${item.id}`}>
+    { set.map(({id, title, vote_average, backdrop_path, poster_path}) => 
+        
+    <MovieCard key={id}>
+      <MovieLink to = {way ? `${way}/${id}` : `${id}`} state={state}>
          <ImgContainer>
-         <Image src={`${EP_IMG}${item.backdrop_path}`}></Image>
+         <Image src={backdrop_path&&poster_path ? `${EP_IMG}${backdrop_path || poster_path}` : photo}/>
+        {vote_average > 0  &&  <Rating>
+            <Star/>
+            {vote_average.toFixed(1)}</Rating>}        
+            <CardTitle>{title}</CardTitle>
          </ImgContainer>
-         <CardTitle>{item.title}</CardTitle>
-      </Link>
-      </MovieCard>)}
+      </MovieLink>
+      </MovieCard>
+      )
+      }
    </MovieSet>
 }
 export default MovieList
