@@ -21,7 +21,6 @@ getMovieInfo(id).then(mow => {
 
 const {title, backdrop_path , overview, vote_average, release_date} = movie;
 
-console.log(movie);
     return <div>
         <ButtonBack to={locationRef.current}><IconBack/> Go back</ButtonBack>
          <MovieContainer>

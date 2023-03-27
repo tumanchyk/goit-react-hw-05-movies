@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { CardTitle, MovieCard, Image, Rating, ImgContainer, MovieSet, MovieLink, Star } from "./MovieList.styled";
 import photo from 'not-found-image.jpg'
 const EP_IMG= 'https://image.tmdb.org/t/p/w500'
@@ -21,4 +22,11 @@ const MovieList = ({set, way, state}) =>{
       }
    </MovieSet>
 }
+
+MovieList.protoTypes = {
+   set: PropTypes.array.isRequired,
+   way: PropTypes.string,
+   state: PropTypes.object.isRequired
+}
+
 export default MovieList

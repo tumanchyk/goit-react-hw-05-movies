@@ -5,7 +5,6 @@ import { NoFound, ReviewContainer, ReviewCard, Reviewer, Content} from "./MovieR
 const Reviews = () =>{
     const [reviews, setReviews] = useState([])
     const {id} = useParams();
-console.log(reviews);
     useEffect(()=> {
         getMovieReviews(id).then(setReviews)}, [id])
 

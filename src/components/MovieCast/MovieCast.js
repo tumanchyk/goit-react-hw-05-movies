@@ -14,8 +14,6 @@ const Cast = () =>{
         getMovieCast(id).then(setCast)
     }, [id])
 
-        console.log(cast)
-
     return <CastList>
         {cast && cast.map(({id, name, character, profile_path}) => {
             return (  <CastCard key={id}>
@@ -26,8 +24,6 @@ const Cast = () =>{
                <Name>{name}</Name>
                 <Character>Character: {character}</Character>
                 </InfoContainer> 
-                
-                
                </CastCard>) }
        )
         }

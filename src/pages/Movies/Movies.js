@@ -19,6 +19,7 @@ const queryItem = query.get('query') ?? '';
      useEffect(()=>{
         getMovies(queryItem).then(setMovieSet)
      },[query, queryItem])
+     
      const location = useLocation()
 
     return (
