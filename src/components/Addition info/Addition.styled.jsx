@@ -1,13 +1,21 @@
 import styled from "@emotion/styled";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-export const ViewSection = styled(Link)`
-text-decorate: none;
+export const ViewSection = styled(NavLink)`
+text-decoration: none;
 margin-right: 20px;
-&:active{
+margin-top: 30px;
+font-size: 20px;
+color: #eee;
+&.active{
     color: #03dac6;
+    font-size: 30px;
+    font-weight: 700;
 }
 &:hover{
-    font-weight: 600;
+    font-weight: 700;
   }
 `
+export const  AdditionList = styled.div`
+display: flex;
+align-items: flex-end;`

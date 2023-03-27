@@ -1,6 +1,7 @@
-import { Link, Outlet, useParams, useLocation } from "react-router-dom";
-import { useEffect, useState, useRef } from "react";
+import { Outlet, useParams, useLocation } from "react-router-dom";
+import { useEffect, useState, useRef, Suspense } from "react";
 import { getMovieInfo } from "API";
+import { AdditionSection } from "components/Addition info/Addition";
 import { ButtonBack, IconBack, Title, Section, MovieInfo, SectionTitle, TextElem, MovieContainer, Image, ImgContainer } from "./MovieItem.styled";
 import photo from 'not-found-image.jpg'
 const EP_IMG= 'https://image.tmdb.org/t/p/w500';
@@ -8,20 +9,19 @@ const EP_IMG= 'https://image.tmdb.org/t/p/w500';
 
 const MovieItem = () =>{
 const [movie, setMovie] = useState({})
+const [genres, setGenres] = useState([])
 const {id} = useParams();
 const location = useLocation();
 const locationRef = useRef(location.state?.from ?? '/movies')
 useEffect(()=> {
-getMovieInfo(id).then(setMovie)
+getMovieInfo(id).then(mow => {
+    setMovie(mow)
+    setGenres(mow.genres)})
 }, [id])
 
-const {title, backdrop_path , overview, vote_average} = movie;
+const {title, backdrop_path , overview, vote_average, release_date} = movie;
 
-// const country =(production_countries[0].name)
-const country = 'uk'
-const movieGenres = 'drama'
-// const movieGenres = genres.map(genre => genre.name).join(', ')
-
+console.log(movie);
     return <div>
         <ButtonBack to={locationRef.current}><IconBack/> Go back</ButtonBack>
          <MovieContainer>
@@ -31,12 +31,12 @@ const movieGenres = 'drama'
             <MovieInfo>
                 <Title>{title}</Title>
                  <Section>
-                    <SectionTitle>Country:</SectionTitle>
-                    <TextElem>{country}</TextElem>
+                    <SectionTitle>Release:</SectionTitle>
+                    <TextElem>{release_date}</TextElem>
                 </Section>
                 <Section>
                     <SectionTitle>Genres:</SectionTitle>
-                    <TextElem>{movieGenres}</TextElem>
+                    <TextElem>{genres.map(genre => genre.name).join(', ')}</TextElem>
                  </Section>
     
                 {vote_average > 0  &&  <Section>
@@ -46,17 +46,15 @@ const movieGenres = 'drama'
                
                 
                     <SectionTitle>Overview</SectionTitle>
-                    <TextElem >{overview}</TextElem>
+                    <TextElem>{overview}</TextElem>
                 
             </MovieInfo> 
-      
             </MovieContainer>
-    
-            <ul>
-                <li><Link to='cast'>Cast</Link></li>
-                <li><Link to='reviews'>Reviews</Link></li>
-                </ul>
-        <Outlet />
+        <AdditionSection/>
+        <Suspense fallback={<div>LOADING SUBPAGE...</div>}>  
+            <Outlet />
+        </Suspense>
+
     </div>}
 
 export default MovieItem

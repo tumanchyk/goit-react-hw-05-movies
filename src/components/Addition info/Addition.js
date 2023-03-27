@@ -1,6 +1,8 @@
-import { ViewSection } from "./Addition.styled";
+import { ViewSection, AdditionList } from "./Addition.styled";
 
-export default const AdditionSection = () =>{
-    <ViewSection>Cast</ViewSection>
-    <ViewSection>Reviews</ViewSection>
+export const AdditionSection = () =>{
+   return  <AdditionList>
+   <ViewSection to='cast'>Cast</ViewSection>
+  <ViewSection to='reviews'>Reviews</ViewSection>
+  </AdditionList>
 }

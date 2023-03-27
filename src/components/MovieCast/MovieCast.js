@@ -1,21 +1,16 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieCast } from "API";
-import { CastList, CastCard, Image, ImgContainer, Name, Character } from "components/MovieCast/Cast.styled";
+import { CastList, CastCard, Image, ImgContainer, Name, Character,InfoContainer } from "components/MovieCast/Cast.styled";
 import photo from 'not-found-image.jpg';
 
 const EP_IMG= 'https://image.tmdb.org/t/p/w500';
 
 
 const Cast = () =>{
-    const [cast, setCast] = useState({})
+    const [cast, setCast] = useState([])
     const {id} = useParams();
     useEffect(()=> {
-        // const foo = async () =>{
-        //     const response = await getMovieCast(id)
-        //     setCast(response)
-        // }
-        // foo()
         getMovieCast(id).then(setCast)
     }, [id])
 
@@ -27,10 +22,13 @@ const Cast = () =>{
                 <ImgContainer>
                    <Image src={profile_path ? `${EP_IMG}${profile_path}` : photo}/>
                 </ImgContainer>
-                <Name>{name}</Name>
+               <InfoContainer>
+               <Name>{name}</Name>
                 <Character>Character: {character}</Character>
-               </CastCard>)
-        }
+                </InfoContainer> 
+                
+                
+               </CastCard>) }
        )
         }
 

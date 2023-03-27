@@ -41,24 +41,25 @@ const Image = styled.img`
    margin-left: 35px;
    `
    const Title = styled.h1`
-   font-size: 32px;
+   font-size: 36px;
    margin-bottom: 20px;
    `
    const Section = styled.div`
    display: flex;
-   font-size: 18px;
    padding: 10px 0`
 
 
    const SectionTitle = styled.h2`
    font-weight: 600;
-   font-size: 18px;
+   font-size: 20px;
    margin-right: 10px;
    &:not(:last-child){
     margin-bottom: 10px;
    }`
    
    const TextElem = styled.p`
+   font-size: 20px;
+
    &:not(:last-child){
     margin-bottom: 10px;
    }`

@@ -10,8 +10,7 @@ padding: 50px 0;
 const CastCard = styled.li`
 margin: 7px;
 width: 237px;
-padding-bottom: 15px;
-border: 1px solid lightgrey;
+border: 1px solid #3f3f3f;
 `
 const ImgContainer = styled.div`
 width: 100%;
@@ -24,6 +23,9 @@ display: block;
  width: 100%;
  object-fit: cover;`
 
+ const InfoContainer = styled.div`
+ height: 85px`
+
  const Name = styled.h3`
  text-align: center;
  font-size: 18px;
@@ -35,4 +37,4 @@ display: block;
  margin-left: 15px;
  `
 
- export {CastList, CastCard, Image, ImgContainer, Name, Character}
+ export {CastList, CastCard, Image, ImgContainer, Name, Character, InfoContainer}

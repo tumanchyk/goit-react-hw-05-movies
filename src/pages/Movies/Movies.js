@@ -6,11 +6,11 @@ import MovieList from "components/MovieList/MovieList";
 
 const Movies  = () =>{
 const [movieSet, setMovieSet] = useState([])
-const [query, setQuery] = useSearchParams();
+const [query, setQuery] = useSearchParams('');
 const queryItem = query.get('query') ?? ''; 
 
     const onFormSubmit = e =>{
-        const queryValue = e.target.query.value;
+        const queryValue = e.target.query.value.trim();
         if(queryValue === ''){
            return setQuery({})
         }
@@ -23,7 +23,7 @@ const queryItem = query.get('query') ?? '';
 
     return (
         <div>
-        <Text>All good movies come to he who looking for.</Text>
+        <Text>All good movies come to the one who search.</Text>
         <Form onSubmit = {onFormSubmit}>
              <Input type='text' name="query"/>
              <Button type='submit'>

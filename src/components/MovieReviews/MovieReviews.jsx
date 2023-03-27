@@ -1,14 +1,25 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieReviews } from "API";
-const Review = () =>{
-    const [movie, setMovie] = useState({})
+import { NoFound, ReviewContainer, ReviewCard, Reviewer, Content} from "./MovieReviews.styled";
+const Reviews = () =>{
+    const [reviews, setReviews] = useState([])
     const {id} = useParams();
+console.log(reviews);
     useEffect(()=> {
-        getMovieReviews(id).then(setMovie)}, [id])
-        console.log(movie)
-        // const rew ='We don`t have any reviews for this movie.'
+        getMovieReviews(id).then(setReviews)}, [id])
 
-    return <p>Review</p>
+    return  <ReviewContainer>
+    {reviews.length === 0 
+    ? <NoFound>We don`t have any reviews for this movie.</NoFound> 
+    : reviews.map(({id, author, content})=> 
+    <ReviewCard key={id}>
+        <Reviewer>{author}</Reviewer>
+        <Content>{content}</Content>
+    </ReviewCard> )}
+    </ReviewContainer>
+       
+    
+    
 }
-export default Review
+export default Reviews
