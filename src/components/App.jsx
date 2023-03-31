@@ -1,7 +1,7 @@
 import { lazy } from 'react';
 import Layout from './Layout/Layout';
 import { Route, Routes } from 'react-router-dom';
-
+const Favorites = lazy(()=> import('../pages/FavoriteMovies/FavoriteMovies'))
 const Home = lazy(()=> import('../pages/Home/Home'));
 const Movies = lazy(()=> import('../pages/Movies/Movies'))
 const MovieItem = lazy(()=> import('../pages/MovieItem/MovieItem'))
@@ -18,6 +18,7 @@ export const App = () => {
         <Route path='cast' element={<Cast />}/>
         <Route path='reviews' element={<Reviews />}/>
       </Route>
+      <Route path='favorites' element={<Favorites />}/>
       <Route path="*" element={<Home />} />
     </Route>
     </Routes>

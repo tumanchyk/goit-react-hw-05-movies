@@ -50,7 +50,7 @@ const {title, backdrop_path , overview, vote_average, release_date} = movie;
             </MovieInfo> 
             </MovieContainer>
         <AdditionSection/>
-        <Suspense fallback={<div>LOADING SUBPAGE...</div>}>  
+        <Suspense>  
             <Outlet />
         </Suspense>
 

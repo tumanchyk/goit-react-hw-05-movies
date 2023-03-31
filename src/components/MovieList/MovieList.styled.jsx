@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
-import { AiFillStar } from "react-icons/ai";
+import { AiFillStar, AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 const MovieSet = styled.ul`
 display: flex;
@@ -8,6 +8,7 @@ flex-wrap: wrap;
 margin: -10px;
 `
  const MovieCard = styled.li`
+ position: relative;
  width: 300px;
 margin: 10px;
  `
@@ -53,5 +54,22 @@ margin: 10px;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   `
-
-  export {MovieSet, CardTitle, MovieCard, Image, Rating, ImgContainer, MovieLink, Star}
+  const Favorite = styled.button`
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  background-color: transparent;
+  border: none;
+  z-index: 12;
+  `
+  const FavoriteIcon = styled(AiOutlineHeart)`
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+  `
+const FillHeart = styled(AiFillHeart)`
+width: 30px;
+height: 30px;
+fill: #fff;
+`
+  export {MovieSet, CardTitle, MovieCard, Image, Rating, ImgContainer, MovieLink, Star, Favorite, FavoriteIcon, FillHeart}
