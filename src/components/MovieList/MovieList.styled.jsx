@@ -43,16 +43,19 @@ margin: 10px;
 
 
   
-  const CardTitle = styled.h2`
+  const CardTitle = styled.div`
   position: absolute;
   bottom: 0;
   display: flex;
   justify-content: center;
   padding: 15px 0;
-  font-size: 18px;
-  font-weight: 600;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+   h2 {
+    font-size: 18px;
+    font-weight: 600;
+    max-width: 290px;
+  }
   `
   const Favorite = styled.button`
   position: absolute;

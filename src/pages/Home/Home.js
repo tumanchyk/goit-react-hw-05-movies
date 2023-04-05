@@ -17,7 +17,7 @@ const Home = () => {
     return <div>
         <MainTitle>What to Watch? 
             <Span>Most Popular Movies Right Now</Span></MainTitle>
-        <MovieList set={movieList} way={`movies`} state={{from: location}}/>
+        <MovieList set={movieList} state={{from: location}}/>
     </div>;
   };
   

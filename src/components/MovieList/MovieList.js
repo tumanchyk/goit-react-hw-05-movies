@@ -6,7 +6,7 @@ const EP_IMG= 'https://image.tmdb.org/t/p/w500';
 
 
 
-const MovieList = ({set, way, state}) =>{
+const MovieList = ({set, state}) =>{
 const [saved, setSaved]= useState([]);
 
 useEffect(() => {
@@ -24,10 +24,9 @@ useEffect(() =>{
 
    const onHeartClick = (item) =>{
       if(saved.some(el => el.id === item.id)){
-         // if(item.id === saved[0].id){
-         //    setSaved([ ])
-         //    return 
-         // }
+         if(item.id === saved[0].id && saved.length === 1){
+            window.localStorage.removeItem('FavoriteMovie')
+         }
          const filtered = saved.filter(elem => elem.id !== item.id);
          setSaved([...filtered])
          return
@@ -45,13 +44,13 @@ useEffect(() =>{
                }}>
                   { saved.some(el => el.id === id) ?  <FillHeart/> : <FavoriteIcon/>}
       </Favorite>  
-      <MovieLink to = {way ? `${way}/${id}` : `${id}`} state={state}>
+      <MovieLink to ={`/movies/${id}`} state={state}>
          <ImgContainer>
          <Image src={backdrop_path&&poster_path ? `${EP_IMG}${backdrop_path || poster_path}` : photo}/>
         {vote_average > 0  &&  <Rating>
             <Star/>
             {vote_average.toFixed(1)}</Rating>}      
-            <CardTitle>{title}</CardTitle>
+            <CardTitle><h2>{title}</h2></CardTitle>
          </ImgContainer>
       </MovieLink>
       
@@ -63,7 +62,6 @@ useEffect(() =>{
 
 MovieList.protoTypes = {
    set: PropTypes.array.isRequired,
-   way: PropTypes.string,
    state: PropTypes.object.isRequired
 }
 
